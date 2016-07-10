@@ -19,8 +19,11 @@ To simulate locally how Mixmax calls the resolver URL (to return HTML that goes 
 curl http://localhost:9145/resolver?text=<track name>
 ```
 
+## What does it do?
 
-## How does it works?
+It allwos you to search for a soundcloud track by doing: ````/soundcloud [trackname]````. It the shows a drop down list with the top ten tracks that match your search. Clicking on one them will leave a link to the actual soundcloud track.
+
+## How does it work?
 
 During the typeahead phase, all requests are made to the Soundcloud Search API to fetch the top 10 results fitting your query. 
 

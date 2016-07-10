@@ -27,7 +27,7 @@ build/Release
 node_modules
 
 #Hide keys
-utils/key.js
+key.js
 server.crt
 server.key
 server.csr
