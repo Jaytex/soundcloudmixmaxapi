@@ -18,12 +18,13 @@ module.exports = function(req, res) {
   var response;
   try {
     response = sync.await(request({
-      url: 'http://api.giphy.com/v1/gifs/search',
+      url: 'https://api-v2.soundcloud.com/search',
       qs: {
         q: term,
         limit: 15,
-        api_key: key
+        client_id: key
       },
+      method: 'GET',
       gzip: true,
       json: true,
       timeout: 10 * 1000
@@ -33,19 +34,19 @@ module.exports = function(req, res) {
     return;
   }
 
-  if (response.statusCode !== 200 || !response.body || !response.body.data) {
+  if (response.statusCode !== 200 || !response.body || !response.body.collection) {
     res.status(500).send('Error');
     return;
   }
 
-  var results = _.chain(response.body.data)
-    .reject(function(image) {
-      return !image || !image.images || !image.images.fixed_height_small;
+  var results = _.chain(response.body.collection)
+    .reject(function(track) {
+      return !track.artwork_url || !track || !track.title || !track.user.username;
     })
-    .map(function(image) {
+    .map(function(track) {
       return {
-        title: '<img style="height:75px" src="' + image.images.fixed_height_small.url + '">',
-        text: 'http://giphy.com/' + image.id
+        title: '<div> <img style="height:75px" src="' + track.artwork_url + '"> <p>' + track.title + ' by ' + track.user.username + '</p></div>',
+        text:  track.id
       };
     })
     .value();

@@ -1,3 +1,1 @@
-// This is the Demo API key from https://github.com/giphy/GiphyAPI and not meant to be used
-// for production traffic.
-module.exports = 'dc6zaTOxFJmzC';
+module.exports = '66f95b5100b960023595c54971e24aa8';
