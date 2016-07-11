@@ -21,7 +21,7 @@ curl http://localhost:9145/resolver?text=<track name>
 
 ## What does it do?
 
-It allwos you to search for a soundcloud track by doing: ````/soundcloud [trackname]````. It the shows a drop down list with the top ten tracks that match your search. Clicking on one them will leave a link to the actual soundcloud track.
+It allwos you to search for a Soundcloud track by doing: ````/soundcloud [trackname]````. It the shows a drop down list with the top ten tracks that match your search. Clicking on one them will leave a link to the actual Soundcloud track.
 
 ## How does it work?
 
@@ -31,7 +31,7 @@ Once you select one of the tracks, it ends up passing to the resolver a ```track
 
 ## Setup
 
-For this to work you need to register your app on soundcloud and obtain a Client ID.
+For this to work you need to register your app on Soundcloud and obtain a Client ID. You can register your app here <http://soundcloud.com/you/apps> (Note: you must have a Soundcloud account or login through Facebook/Google)
 
 Once you have your API Client ID, just paste it in ```./utils/key.js```.
 
